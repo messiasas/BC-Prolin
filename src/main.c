@@ -267,13 +267,70 @@ int HelloWorld(void)
 }
 
 
+void exercicio01(){
+
+	int ret = PP_Open(NULL);
+
+	OsLog(LOG_DEBUG, "PP_Open: %d", ret);
+
+	char output[256] = {0};
+
+	PP_GetInfo("00", output);
+	OsLog(LOG_DEBUG,"00: %s", output);
+
+	ret = PP_Close("");
+	OsLog(LOG_DEBUG,"PP_Close: %d",ret);
+}
+
+void exercicio02(){
+
+	int ret = PP_Open(NULL);
+
+	OsLog(LOG_DEBUG, "PP_Open: %d", ret);
+
+	char out[256] = {0};
+
+	ret = PP_GetCtlsVersion(out);
+	OsLog(LOG_DEBUG,"PP_GetCtlsVersion: %s - Ret:%i", out, ret);
+
+	ret = PP_Close("");
+
+	OsLog(LOG_DEBUG, "PP_Close: %d", ret);
+
+}
+
+
+
 int main(int argc, char **argv)
 {
-	OsLogSetTag("== LOG ==");
+    XuiColor colorWhite = {0xFF, 0xFF, 0xFF, 0xFF};
+    XuiFont *font;
+    int key;
 
     CrashReportInit();
+    OsLogSetTag("== LOG ==");
     GuiInit(18);
-    HelloWorld();
-    GuiDeinit();
+
+    font = XuiCreateFont("/usr/font/paxfont.ttf", 0, 0);
+
+    XuiCanvasDrawText(XuiRootCanvas(), 10, 10, 15, font, XUI_TEXT_NORMAL, colorWhite, "Setis BC");
+    XuiCanvasDrawText(XuiRootCanvas(), 10, 40, 15, font, XUI_TEXT_NORMAL, colorWhite, "1 - Info.Terminal");
+    XuiCanvasDrawText(XuiRootCanvas(), 10, 70, 15, font, XUI_TEXT_NORMAL, colorWhite, "2 - Info.kernel CTLS");
+
+    while (1) {
+        if (!XuiHasKey()) {
+            OsSleep(20);                           /* não trava a CPU */
+            continue;
+        }
+
+        key = XuiGetKey();
+
+        if (key == XUI_KEY1) { exercicio01(); break; }
+        if (key == XUI_KEY2) { exercicio02(); break; }
+        if (key == XUI_KEYCANCEL) break;
+    }
+
+    XuiDestroyFont(font);
+    GuiDeinit();                                   /* fecha o XUI só no fim */
     return 0;
 }

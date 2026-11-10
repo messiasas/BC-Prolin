@@ -13,14 +13,14 @@
 				</extensions>
 			</storageModule>
 			<storageModule moduleId="cdtBuildSystem" version="4.0.0">
-				<configuration artifactName="${ProjName}" buildArtefactType="org.eclipse.cdt.build.core.buildArtefactType.exe" buildProperties="org.eclipse.cdt.build.core.buildArtefactType=org.eclipse.cdt.build.core.buildArtefactType.exe,org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.debug" cleanCommand="rm -rf" description="" id="com.paxsz.pdt.crossgcc.configuration.exe.linux.default.1426884437" name="default" parent="com.paxsz.pdt.crossgcc.configuration.exe.linux.default">
+				<configuration artifactName="${ProjName}" buildArtefactType="org.eclipse.cdt.build.core.buildArtefactType.exe" buildProperties="org.eclipse.cdt.build.core.buildArtefactType=org.eclipse.cdt.build.core.buildArtefactType.exe,org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.debug" cleanCommand="rm -rf" description="" id="com.paxsz.pdt.crossgcc.configuration.exe.linux.default.1426884437" name="default" optionalBuildProperties="org.eclipse.cdt.docker.launcher.containerbuild.property.volumes=,org.eclipse.cdt.docker.launcher.containerbuild.property.selectedvolumes=" parent="com.paxsz.pdt.crossgcc.configuration.exe.linux.default">
 					<folderInfo id="com.paxsz.pdt.crossgcc.configuration.exe.linux.default.1426884437." name="/" resourcePath="">
 						<toolChain id="com.paxsz.pdt.crossgcc.toolChain.exe.linux.691613935" name="PAX APP Toolchain" superClass="com.paxsz.pdt.crossgcc.toolChain.exe.linux">
-							<option id="com.paxsz.pdt.crossgcc.option.compiler.flag.889227189" name="Built-in Compiler Flags:" superClass="com.paxsz.pdt.crossgcc.option.compiler.flag" valueHandlerExtraArgument="com.paxsz.pdt.crossgcc.enum.library.version.ngfp.201205"/>
-							<option id="com.paxsz.pdt.crossgcc.option.toolChains.1970424635" name="ToolChain Type:" superClass="com.paxsz.pdt.crossgcc.option.toolChains" value="com.paxsz.pdt.crossgcc.enum.tc.arm463" valueHandlerExtraArgument="com.paxsz.pdt.crossgcc.enum.library.version.ngfp.201205" valueType="enumerated"/>
-							<option id="com.paxsz.pdt.crossgcc.option.tool.path.2080018031" name="Tool Path:" superClass="com.paxsz.pdt.crossgcc.option.tool.path" value="com.paxsz.pdt.crossgcc.enum.tool.path.arm463" valueHandlerExtraArgument="com.paxsz.pdt.crossgcc.enum.tc.arm463" valueType="enumerated"/>
-							<option id="com.paxsz.pdt.crossgcc.option.library.path.18616291" name="Built-in Library Path:" superClass="com.paxsz.pdt.crossgcc.option.library.path" value="com.paxsz.pdt.crossgcc.enum.library.path.arm463" valueHandlerExtraArgument="com.paxsz.pdt.crossgcc.enum.tc.arm463" valueType="enumerated"/>
-							<option id="com.paxsz.pdt.crossgcc.option.linker.flag.2004534679" name="Built-in Linker Flags:" superClass="com.paxsz.pdt.crossgcc.option.linker.flag" value="com.paxsz.pdt.crossgcc.enum.linker.flag.arm463" valueHandlerExtraArgument="com.paxsz.pdt.crossgcc.enum.tc.arm463" valueType="enumerated"/>
+							<option id="com.paxsz.pdt.crossgcc.option.compiler.flag.889227189" name="Built-in Compiler Flags:" superClass="com.paxsz.pdt.crossgcc.option.compiler.flag" useByScannerDiscovery="false" valueHandlerExtraArgument="com.paxsz.pdt.crossgcc.enum.library.version.ngfp.201205"/>
+							<option id="com.paxsz.pdt.crossgcc.option.toolChains.1970424635" name="ToolChain Type:" superClass="com.paxsz.pdt.crossgcc.option.toolChains" useByScannerDiscovery="false" value="com.paxsz.pdt.crossgcc.enum.tc.arm463" valueHandlerExtraArgument="com.paxsz.pdt.crossgcc.enum.library.version.ngfp.201205" valueType="enumerated"/>
+							<option id="com.paxsz.pdt.crossgcc.option.tool.path.2080018031" name="Tool Path:" superClass="com.paxsz.pdt.crossgcc.option.tool.path" useByScannerDiscovery="false" value="com.paxsz.pdt.crossgcc.enum.tool.path.arm463" valueHandlerExtraArgument="com.paxsz.pdt.crossgcc.enum.tc.arm463" valueType="enumerated"/>
+							<option id="com.paxsz.pdt.crossgcc.option.library.path.18616291" name="Built-in Library Path:" superClass="com.paxsz.pdt.crossgcc.option.library.path" useByScannerDiscovery="false" value="com.paxsz.pdt.crossgcc.enum.library.path.arm463" valueHandlerExtraArgument="com.paxsz.pdt.crossgcc.enum.tc.arm463" valueType="enumerated"/>
+							<option id="com.paxsz.pdt.crossgcc.option.linker.flag.2004534679" name="Built-in Linker Flags:" superClass="com.paxsz.pdt.crossgcc.option.linker.flag" useByScannerDiscovery="false" value="com.paxsz.pdt.crossgcc.enum.linker.flag.arm463" valueHandlerExtraArgument="com.paxsz.pdt.crossgcc.enum.tc.arm463" valueType="enumerated"/>
 							<targetPlatform archList="all" binaryParser="org.eclipse.cdt.core.ELF" id="com.paxsz.pdt.crossgcc.targetPlatform.621681526" osList="all" superClass="com.paxsz.pdt.crossgcc.targetPlatform"/>
 							<builder buildPath="${workspace_loc:/BCprolin-testes}/default" id="com.paxsz.pdt.crossgcc.builder.30589481" keepEnvironmentInBuildfile="false" managedBuildOn="true" name="Gnu Make Builder" superClass="com.paxsz.pdt.crossgcc.builder"/>
 							<tool id="com.paxsz.pdt.crossgcc.tool.c.compiler.507320433" name="GCC Compiler" superClass="com.paxsz.pdt.crossgcc.tool.c.compiler">
@@ -28,7 +28,7 @@
 							</tool>
 							<tool id="com.paxsz.pdt.crossgcc.tool.cpp.compiler.739989799" name="G++ Compiler" superClass="com.paxsz.pdt.crossgcc.tool.cpp.compiler"/>
 							<tool id="com.paxsz.pdt.crossgcc.tool.c.linker.linux.548855495" name="GCC Linker" superClass="com.paxsz.pdt.crossgcc.tool.c.linker.linux">
-								<option id="com.paxsz.pdt.crossgcc.tool.c.linker.option.libs.487075789" name="Libraries (-l)" superClass="com.paxsz.pdt.crossgcc.tool.c.linker.option.libs" valueType="stringList">
+								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="com.paxsz.pdt.crossgcc.tool.c.linker.option.libs.487075789" name="Libraries (-l)" superClass="com.paxsz.pdt.crossgcc.tool.c.linker.option.libs" useByScannerDiscovery="false" valueType="stringList">
 									<listOptionValue builtIn="false" value="osal"/>
 									<listOptionValue builtIn="false" value="D_DEVICE_LIB_v615"/>
 									<listOptionValue builtIn="false" value="F_AE_LIB_v254"/>
@@ -68,4 +68,5 @@
 	</storageModule>
 	<storageModule moduleId="org.eclipse.cdt.core.LanguageSettingsProviders"/>
 	<storageModule moduleId="refreshScope"/>
+	<storageModule moduleId="org.eclipse.cdt.make.core.buildtargets"/>
 </cproject>

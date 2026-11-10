@@ -1,7 +1,5 @@
-inc/
-lib/
-*.so
-*.a
-*.pem
-*.key
-storage/
+# Ignora todas as pastas da raiz...
+/*/
+
+# ...menos a src
+!/src/
