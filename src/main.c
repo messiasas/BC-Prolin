@@ -19,6 +19,8 @@
 #include <xui.h>
 #include "stdbool.h"
 
+#include "callbacks.h"
+
 #include <ppc_type.h>
 #include <ppcomp.h>
 #include <ppcomp_ex.h>
@@ -43,10 +45,13 @@ static int GuiInit(int statusbar_height)
         strcpy(rotate_str, "ROTATE=0");
     }
 
+    snprintf(statusbar_str, sizeof(statusbar_str), "STATUSBAR=%d", statusbar_height);
+
     xui_argv[0] = rotate_str;
     xui_argv[1] = statusbar_str;
     xui_argv[2] = NULL;
     xui_argc = 2;
+
 
     ret = XuiOpen(xui_argc, xui_argv);
     if (ret == XUI_RET_OK) {
@@ -278,7 +283,7 @@ void exercicio01(){
 	PP_GetInfo("00", output);
 	OsLog(LOG_DEBUG,"00: %s", output);
 
-	ret = PP_Close("");
+	ret = PP_Close("                                ");
 	OsLog(LOG_DEBUG,"PP_Close: %d",ret);
 }
 
@@ -293,13 +298,30 @@ void exercicio02(){
 	ret = PP_GetCtlsVersion(out);
 	OsLog(LOG_DEBUG,"PP_GetCtlsVersion: %s - Ret:%i", out, ret);
 
-	ret = PP_Close("");
+	ret = PP_Close("                                ");
 
 	OsLog(LOG_DEBUG, "PP_Close: %d", ret);
 
 }
+static void exercicio03(void)
+{
+    int rc;
 
+    rc = PP_Open(NULL);
+    OsLog(LOG_INFO, "PP_Open -> %d", rc);
 
+    rc = PP_Display("EXERCICIO 03    CALLBACKS       ");
+    OsLog(LOG_INFO, "PP_Display -> %d", rc);
+
+    while (!XuiHasKey() || XuiGetKey() != XUI_KEYCANCEL)   /* só sai com CANCEL */
+        OsSleep(20);
+
+    rc = PP_Display("                                ");    /* apaga */
+    OsLog(LOG_INFO, "PP_Display (apagar) -> %d", rc);
+
+    rc = PP_Close("                                ");
+    OsLog(LOG_INFO, "PP_Close -> %d", rc);
+}
 
 int main(int argc, char **argv)
 {
@@ -312,21 +334,24 @@ int main(int argc, char **argv)
     GuiInit(18);
 
     font = XuiCreateFont("/usr/font/paxfont.ttf", 0, 0);
+    Callbacks_Init(font); // <---------- inicio da chamada de lib(PP_iInitLib)
 
     XuiCanvasDrawText(XuiRootCanvas(), 10, 10, 15, font, XUI_TEXT_NORMAL, colorWhite, "Setis BC");
     XuiCanvasDrawText(XuiRootCanvas(), 10, 40, 15, font, XUI_TEXT_NORMAL, colorWhite, "1 - Info.Terminal");
     XuiCanvasDrawText(XuiRootCanvas(), 10, 70, 15, font, XUI_TEXT_NORMAL, colorWhite, "2 - Info.kernel CTLS");
+    XuiCanvasDrawText(XuiRootCanvas(), 10, 100, 15, font, XUI_TEXT_NORMAL, colorWhite, "3 - Callbacks");
 
     while (1) {
         if (!XuiHasKey()) {
-            OsSleep(20);                           /* não trava a CPU */
+            OsSleep(20);
             continue;
         }
 
         key = XuiGetKey();
 
-        if (key == XUI_KEY1) { exercicio01(); break; }
-        if (key == XUI_KEY2) { exercicio02(); break; }
+        if (key == XUI_KEY1) { exercicio01(); }
+        if (key == XUI_KEY2) { exercicio02(); }
+        if (key == XUI_KEY3) { exercicio03(); }
         if (key == XUI_KEYCANCEL) break;
     }
 

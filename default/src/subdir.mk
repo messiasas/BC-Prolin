@@ -4,12 +4,14 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
+../src/callbacks.c \
 ../src/checkEvents.c \
 ../src/inputValor.c \
 ../src/main.c \
 ../src/updateTables.c 
 
 OBJS += \
+./src/callbacks.o \
 ./src/checkEvents.o \
 ./src/inputValor.o \
 ./src/main.o \
@@ -28,7 +30,7 @@ src/%.o: ../src/%.c src/subdir.mk
 clean: clean-src
 
 clean-src:
-	-$(RM) ./src/checkEvents.o ./src/inputValor.o ./src/main.o ./src/updateTables.o
+	-$(RM) ./src/callbacks.o ./src/checkEvents.o ./src/inputValor.o ./src/main.o ./src/updateTables.o
 
 .PHONY: clean-src
 
